@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
 
-// pseudo rosnąca baza danych
 const data = [
   { id: 1, title: 'Wiadomość numer 1', body: 'Zawartość wiadomości numer 1 ...' },
   { id: 2, title: 'Wiadomość numer 2', body: 'Zawartość wiadomości numer 2 ...' }
