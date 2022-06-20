@@ -12,11 +12,17 @@ class App extends Component {
     fetch(API)
       .then((response) => {
         if (response.ok) {
+          console.log(response);
           return response;
         }
         throw Error(response.status);
       })
-      .then()
+      .then((response) => response.json())
+      .then((data) => {
+        this.setState({
+          users: data.results,
+        });
+      })
       .catch((error) => console.log(error));
   };
   render() {
