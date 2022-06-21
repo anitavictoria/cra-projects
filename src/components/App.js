@@ -13,7 +13,6 @@ class App extends Component {
     fetch(API)
       .then((response) => {
         if (response.ok) {
-          // console.log(response);
           return response;
         }
         throw Error(response.status);
