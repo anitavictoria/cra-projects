@@ -6,31 +6,35 @@ import ButtonFetchUsers from "./ButtonFetchUsers";
 const API = "https://randomuser.me/api/?results=5";
 class App extends Component {
   state = {
-    users: null,
+    users: [],
   };
+
   handleDataFetch = () => {
     fetch(API)
       .then((response) => {
         if (response.ok) {
-          console.log(response);
+          // console.log(response);
           return response;
         }
         throw Error(response.status);
       })
       .then((response) => response.json())
       .then((data) => {
-        this.setState({
-          users: data.results,
-        });
+        const user = data.results;
+
+        this.setState((prevState) => ({
+          users: prevState.users.concat(user),
+        }));
       })
-      .catch((error) => console.log(error));
+      .catch((error) => console.log(error + " coś nie tak"));
   };
+
   render() {
     const users = this.state.users;
     return (
       <div>
         <ButtonFetchUsers click={this.handleDataFetch} />
-        {users ? <UsersList users={users} /> : users}
+        {users.length > 0 ? <UsersList users={users} /> : users}
       </div>
     );
   }
