@@ -24,6 +24,7 @@ class App extends Component {
     accept_incorrect: "Nie potwierdzono zgody",
   };
 
+
   handleChange = (e) => {
     const name = e.target.name;
     const type = e.target.type;
@@ -39,7 +40,6 @@ class App extends Component {
         [name]: checked,
       });
     }
-  };
 
   handleSubmit = (e) => {
     const validaton = this.formValidation();
